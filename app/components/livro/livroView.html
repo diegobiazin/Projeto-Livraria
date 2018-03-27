@@ -1,0 +1,42 @@
+<h1>Lista/Manutenção de Livros</h1>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <button type="button" class="btn btn-default" ng-click="incluir(livro.nome)">Incluir</button>
+        <button type="button" class="btn btn-default" ng-click="atualizar(livro)">Alterar</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4 col-md-4">
+        <div class="form-group">
+            <label>ID</label>
+            <input type="text" ng-model="livro.codigo" class="form-control" readonly>
+        </div>
+    </div>
+    <div class="col-xs-8 col-md-8">
+        <div class="form-group">
+            <label>Descrição</label>
+            <input type="text" ng-model="livro.nome" class="form-control">
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Editar</th>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in livros">
+                <td><button type="button" class="btn btn-success" ng-click="selecionar(x)">Edit</button></td>
+                <td>{{ x.codigo }}</td>
+                <td>{{ x.nome }}</td>
+                <td><button type="button" class="btn btn-danger" ng-click="deletar(x.codigo)">X</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
